@@ -9,7 +9,7 @@ class DemoLoginPage
 	button(:login, :css => '.radius')
 
 	def invalid_login
-		self.populate_page_with data_for :invalid_login
-		sleep 7
+		self.populate_page_with data_for "login/invalid_login"
+		login
 	end
 end
