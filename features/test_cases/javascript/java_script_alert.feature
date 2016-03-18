@@ -1,3 +1,5 @@
+@javascript
+
 Feature: Java Script Alerts
 
 Scenario: Java script alert recognition

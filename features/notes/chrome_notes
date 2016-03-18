@@ -1,5 +1,7 @@
 chrome_notes
 
+per Dave Haeffner dhaeffner@gmail.com selenenium help converted to Cucumber by Marc Thompson
+
 The Problem
 
 It's straightforward to get your tests running locally against Firefox. But when you want to run them against a different browser like Chrome, you quickly run into configuration overhead that can seem overly complex and lacking in code examples for getting started.

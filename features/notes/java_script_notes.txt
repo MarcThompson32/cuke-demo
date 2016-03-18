@@ -1,3 +1,5 @@
+per Dave Haeffner dhaeffner@gmail.com selenenium help converted to Cucumber by Marc Thompson
+
 If your application triggers any JavaScript pop-ups (a.k.a. alerts, dialogs, etc.) then you need to know how to handle them in your Selenium tests.
 
 A Solution

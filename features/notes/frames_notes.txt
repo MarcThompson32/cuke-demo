@@ -1,4 +1,7 @@
 frames
+
+per Dave Haeffner dhaeffner@gmail.com selenenium help converted to Cucumber by Marc Thompson
+
 The Problem
 
 On occasion you'll run into a relic of the front-end world -- frames. And when writing a test against them, you can easily get tripped if you're not paying attention.
