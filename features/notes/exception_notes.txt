@@ -22,19 +22,6 @@ require 'selenium-webdriver'
 require 'rspec/expectations'
 include RSpec::Matchers
 
-def setup
-  @driver = Selenium::WebDriver.for :firefox
-end
-
-def teardown
-  @driver.quit
-end
-
-def run
-  setup
-  yield
-  teardown
-end
 To demonstrate the problem, let's wire up a simple test to exercise the login page. After logging in we'll check to see that the login form is no longer displayed.
 
 run do

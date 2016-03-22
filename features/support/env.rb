@@ -22,8 +22,7 @@ World(DataMagic)
 
 Before do
 	@download_dir = "c:\\automation"
-  puts ">> #{DataMagic.yml_directory}"
-	
+  	
   profile = Selenium::WebDriver::Firefox::Profile.new
   profile.assume_untrusted_certificate_issuer = false
   profile['browser.download.dir'] = @download_dir

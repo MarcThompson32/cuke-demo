@@ -1,4 +1,12 @@
-# login
 invalid_login:
   username: marc
   password: password
+invalid_user_name_login:
+   username: invalid_user_name
+   password: pass1
+invalid_password_login:
+   username: tomsmith
+   password: pass1
+valid_login:
+   username: tomsmith
+   password: SuperSecretPassword!
