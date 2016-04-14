@@ -23,12 +23,12 @@ Scenario: Select a specific option
 	When I select "Option 2" from the dropdown
 	Then I should see "Option 2" selected
 
-Scenario: Select select disabled option
+Scenario: Select disabled option
 	Given I am on the demo dropdown test page
 	When I select "Please select an option" from the dropdown
 	Then I should see that option is disabled
 
-Scenario: Select select enabled option
+Scenario: Select enabled option
 	Given I am on the demo dropdown test page
 	When I select "Option 2" from the dropdown
 	Then I should see that option is disabled
