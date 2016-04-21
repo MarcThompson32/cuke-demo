@@ -10,7 +10,6 @@ require 'rspec/expectations'
 require 'uuid'
 include RSpec::Matchers
 
-
 World(PageObject::PageFactory)
 
 DataMagic.yml_directory = File.expand_path('.') + '/features/config/data'
@@ -33,6 +32,12 @@ Before do
   #@browser = Selenium::WebDriver.for :firefox, profile => cuke_profile
 end
 
-After do
+After do |scenario|
+  if scenario.failed?
+    screenshot_filename =  File.expand_path('.') +"/features/output/#{Time.now.strftime("screenshot_%d_%m_%Y__%H_%M_%S")}.png" 
+    puts "-> #{screenshot_filename}"
+    @browser.save_screenshot screenshot_filename
+  end
+
   @browser.quit
 end
