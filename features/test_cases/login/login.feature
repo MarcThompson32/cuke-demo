@@ -1,4 +1,4 @@
-@login
+@login @text_field @button
 
 Feature: User login
 
