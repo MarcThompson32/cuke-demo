@@ -35,12 +35,12 @@ class DemoLoginPage
 	end
 
 	def verify_login_succesful
-		expect(self.login_warning.include? $LOGIN_SUCCESS).to eql true
+		expect(self.login_warning.include? LOGIN_SUCCESS).to eql true
 	end
 
 	def verify_login_failure
-		username_failure = self.login_warning.include? $LOGIN_USERNAME_FAILURE
-		password_failure = self.login_warning.include? $LOGIN_PASSWORD_FAILURE
+		username_failure = self.login_warning.include? LOGIN_USERNAME_FAILURE
+		password_failure = self.login_warning.include? LOGIN_PASSWORD_FAILURE
 
 		expect(username_failure || password_failure).to eql true
 	end
