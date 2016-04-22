@@ -6,10 +6,10 @@ When /^I select the (first|second) option$/ do |option|
 	case option
 		when "first"
 			on(DemoDropdownPage).dropdown_list=first_option	
-			sleep 3
+			#sleep 3
 		when "second"
 			on(DemoDropdownPage).dropdown_list=second_option	
-			sleep 3
+			#sleep 3
 	end
 end
 
@@ -23,13 +23,11 @@ Then /^I should see the (first|second) option is selected$/ do |option|
 end
 
 Then /^I should see that option is disabled$/ do
-	expect(on(DemoDropdownPage).dropdown_list_element.enabled?).to eql true
-	#puts @browser.find_element(:id, 'dropdown').enabled?
-	#puts on(DemoDropdownPage).dropdown_list_options
+	expect(on(DemoDropdownPage).dropdown_list_element.enabled?).to eql false
+end
 
-	#items_of_interest = on(DemoDropdownPage).dropdown_list_options.find { |dropdown| dropdown.text == 'Please select an option' }
-
- 	#expect(item_of_interest.enabled?).to eql true
+Then /^I should see that "(.*)" is not selectable$/ do |option_text|
+	expect(on(DemoDropdownPage).dropdown_list).not_to eql option_text
 end
 
 def first_option
