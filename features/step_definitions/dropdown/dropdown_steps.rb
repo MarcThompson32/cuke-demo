@@ -6,10 +6,8 @@ When /^I select the (first|second) option$/ do |option|
 	case option
 		when "first"
 			on(DemoDropdownPage).dropdown_list=first_option	
-			#sleep 3
 		when "second"
 			on(DemoDropdownPage).dropdown_list=second_option	
-			#sleep 3
 	end
 end
 
