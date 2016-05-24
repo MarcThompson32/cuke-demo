@@ -26,6 +26,4 @@ Scenario: Select a specific option
 Scenario: Select disabled option
 	Given I am on the demo dropdown test page
 	When I select the second option
-	And I wait 5 seconds
-	When I select "Please select an option" from the dropdown
 	Then I should see that "Please select an option" is not selectable

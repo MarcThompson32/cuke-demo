@@ -2,30 +2,31 @@ COLUMN_1_SORTED_BY_FIRST = ["Bach", "Conway", "Doe", "Smith"]
 COLUMN_2_SORTED_BY_SECOND = ["Frank", "Jason", "John", "Tim"]
 COLUMN_3_SORTED_BY_THIRD =["fbach@yahoo.com", "jdoe@hotmail.com", "jsmith@gmail.com", "tconway@earthlink.net"] 
 COLUMN_4_SORTED_BY_FOURTH = ["$50.00", "$50.00", "$51.00", "$100.00"]
+COLUMN_5_SORTED_BY_FIFTH = ["http://www.frank.com", "http://www.jdoe.com", "http://www.jsmith.com", "http://www.timconway.com"]
 
 Given /^I am on the demo table test page$/ do
-
 	visit DemoTablePage
 end
 
 Then /^I should see table 1$/ do
-	on(DemoTablePage).find_row('Email','jdoe@hotmail.com')
+	expect(on(DemoTablePage).table_1?).to eql true
 end
 
 When /^I sort the table by the (first|second|third|fourth|fifth) column$/ do |coumn_number|
 	case coumn_number
 		when "first"
-			on(DemoTablePage).column_header_last_name
+			on(DemoTablePage).column_header_last_name_element.click
 		when "second"
-			on(DemoTablePage).column_header_first_name
+			on(DemoTablePage).column_header_first_name_element.click
 		when "third"
-			on(DemoTablePage).column_header_email
+			on(DemoTablePage).column_header_email_element.click
 		when "fourth"
-			on(DemoTablePage).column_header_due
+			on(DemoTablePage).column_header_due_element.click
 		when "fifth"
-			on(DemoTablePage).column_header_web_site
+			on(DemoTablePage).column_header_web_site_element.click
 		else
 			puts "invalid option!"
+
 		end	
 end
 
@@ -48,7 +49,7 @@ Then /^I should see the table sorted in ascending order by (first|second|third|f
 		when "fourth"
 			expect(on(DemoTablePage).get_column_row_data("Due")).to eql COLUMN_4_SORTED_BY_FOURTH
 		when "fifth"
-			on(DemoTablePage).get_column_row_data("Web Site")
+			expect(on(DemoTablePage).get_column_row_data("Web Site")).to eql COLUMN_5_SORTED_BY_FIFTH
 	end
 end
 

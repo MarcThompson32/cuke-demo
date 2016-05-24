@@ -5,11 +5,11 @@ end
 When(/^I hover over the (first|second|third) avatar$/) do |user|
 	case user
 		when "first"
-			@browser.action.move_to(on(DemoHoverPage).avatar_1_element.element).perform
+			on(DemoHoverPage).avatar_1_element.hover
 		when "second"
-			@browser.action.move_to(on(DemoHoverPage).avatar_2_element.element).perform
+			on(DemoHoverPage).avatar_2_element.hover
 		when "third"
-			@browser.action.move_to(on(DemoHoverPage).avatar_3_element.element).perform
+			on(DemoHoverPage).avatar_3_element.hover
 	end  
 end
 
@@ -26,7 +26,7 @@ end
 
 Then /^I should not see any avatar message$/ do
 	
-	expect(@browser.page_source).not_to include HOVER1_TEXT
-	expect(@browser.page_source).not_to include HOVER2_TEXT
-	expect(@browser.page_source).not_to include HOVER3_TEXT
+	expect(@browser.text).not_to include HOVER1_TEXT
+	expect(@browser.text).not_to include HOVER2_TEXT
+	expect(@browser.text).not_to include HOVER3_TEXT
 end

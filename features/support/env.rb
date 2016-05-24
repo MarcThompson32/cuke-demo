@@ -6,6 +6,7 @@ require 'rspec'
 require 'data_magic'
 require 'fig_newton'
 require 'selenium-webdriver'
+require 'watir-webdriver'
 require 'rspec/expectations'
 require 'uuid'
 include RSpec::Matchers
@@ -26,17 +27,25 @@ Before do
   profile.assume_untrusted_certificate_issuer = false
   profile['browser.download.dir'] = @download_dir
   #puts profile.methods
-  @browser = Selenium::WebDriver.for :firefox, :profile => "Cucumber" #use the cucumber profile
+  
+  #@browser = Selenium::WebDriver.for :firefox, :profile => "Cucumber" #use the cucumber profile
+  @browser = Watir::Browser.new :firefox, :profile => 'Cucumber'
 
-  cuke_profile = Selenium::WebDriver::Firefox::Profile.from_name "Cucumber"
+  #cuke_profile = Selenium::WebDriver::Firefox::Profile.from_name "Cucumber"
   #@browser = Selenium::WebDriver.for :firefox, profile => cuke_profile
 end
 
 After do |scenario|
   if scenario.failed?
-    screenshot_filename =  File.expand_path('.') +"/features/output/#{Time.now.strftime("screenshot_%d_%m_%Y__%H_%M_%S")}.png" 
-    puts "-> #{screenshot_filename}"
-    @browser.save_screenshot screenshot_filename
+    screenshot_filename =  File.expand_path('.') +"/features/output/#{Time.now.strftime("screenshot_%d_%m_%Y_%H_%M_%S")}.png" 
+
+    # selenium
+    #@browser.save_screen shotscreenshot_filename
+    
+    # watir
+    @browser.screenshot.save screenshot_filename
+
+    puts "-> #{screenshot_filename}"  
   end
 
   @browser.quit

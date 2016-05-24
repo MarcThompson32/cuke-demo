@@ -5,12 +5,11 @@ class DemoTablePage
 	page_url "http://the-internet.herokuapp.com/tables"
 
 	table(:table_1, :id => 'table1')
-	link(:column_header_last_name, :css => 'thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > span:nth-child(1)')
-	link(:column_header_first_name, :css => 'thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > span:nth-child(1)')
-	link(:column_header_email, :css => '#table1 > thead > tr > th:nth-child(3) > span')
-	
-	link(:column_header_due, :css => '#table1 > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(4) > span:nth-child(1)')
-	link(:column_header_web_site, :css => 'thead:nth-child(1) > tr:nth-child(1) > th:nth-child(5) > span:nth-child(1)')
+	span(:column_header_last_name, :css => '#table1 > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > span:nth-child(1)')
+	span(:column_header_first_name, :css => '#table1 > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > span:nth-child(1)')
+	span(:column_header_email, :css => '#table1 > thead > tr > th:nth-child(3) > span')
+	span(:column_header_due, :css => '#table1 > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(4) > span:nth-child(1)')
+	span(:column_header_web_site, :css => '#table1 > thead > tr > th:nth-child(5) > span')
 
 	def find_row(col, value)
 		#puts self.table_1_element.first_row.text

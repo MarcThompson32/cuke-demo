@@ -4,7 +4,6 @@ end
 
 And /^I display a java script alert$/ do
 	on(JavaScriptAlertPage).js_alert
-	@browser.window_handles.length
 end
 
 And /^I display a java script confirm alert$/ do
@@ -16,8 +15,8 @@ And /^I display a java script prompt alert$/ do
 end
 
 And /^I accept the alert$/ do
-	popup = @browser.switch_to.alert
-	popup.accept
+	popup = @browser.alert
+	popup.ok
 end
 
 And /^I should see the java script alert XXXTESTXXX$/ do
@@ -29,13 +28,13 @@ And /^I should see the java script alert XXXTESTXXX$/ do
 end
 
 And /^I cancel the java script alert$/ do
-	popup = @browser.switch_to.alert
-	popup.dismiss
+	popup = @browser.alert
+	popup.close
 end
 
 Then /^I should not see the java script alert$/ do
 	begin
-	popup = @browser.switch_to.alert
+	popup = @browser.alert
 		#"No alert is present"
 		rescue Exception => e
 			expect(e.class).to be Selenium::WebDriver::Error::NoSuchAlertError	
@@ -43,9 +42,8 @@ Then /^I should not see the java script alert$/ do
 end
 
 Then /^I should see the java script alert$/ do
-	popup = @browser.switch_to.alert
-	alert = popup.text
+	alert_popup = @browser.alert
+	
   	alert_list = ['I am a JS Alert', 'I am a JS Confirm', 'I am a JS prompt']
-  	alert_list.include?(alert)
-  	expect(alert_list.include?(alert)).to be true
+  	expect(alert_list.include?(alert_popup.text)).to be true
 end

@@ -25,7 +25,12 @@ Then /^I should see that option is disabled$/ do
 end
 
 Then /^I should see that "(.*)" is not selectable$/ do |option_text|
-	expect(on(DemoDropdownPage).dropdown_list).not_to eql option_text
+	begin
+		on(DemoDropdownPage).dropdown_list = option_text
+
+	rescue Exception => e
+		expect(e.class).to be Watir::Exception::ObjectDisabledException
+	end
 end
 
 def first_option
