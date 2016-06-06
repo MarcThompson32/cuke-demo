@@ -2,8 +2,9 @@
 Brief demo of cucumber
 
 This project is to display some of the various ways that Cucumber can be used to test web site functiionality
-utilizing the ruby Selenium webdriver drivers watir can be used also but I have chosen Selenium as I am most
-familiar with it and help is readily and easily availale
+utilizing the ruby Selenium webdriver drivers and WATIR Webdriver drivers now a watir branch AND a selenium brach that shows 
+the use of each driver. I personaly prefer Selenium because help is so readily and easily availale.  I must admit since making
+a seperate watir branch I may be changing my mind! :-)
 
 this demo will utilize the page object (UI), fig newton (environments) and the data magic (data) gem
 
