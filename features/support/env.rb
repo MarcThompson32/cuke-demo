@@ -27,6 +27,10 @@ Before do
   profile.assume_untrusted_certificate_issuer = false
   profile['browser.download.dir'] = @download_dir
   
+  # Chrome
+ # @browser = Watir::Browser.new :chrome
+
+  # firefox
   @browser = Watir::Browser.new :firefox, :profile => 'Cucumber'
 end
 
