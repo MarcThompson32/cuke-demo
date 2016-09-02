@@ -10,6 +10,7 @@ require 'watir-webdriver'
 require 'rspec/expectations'
 require 'uuid'
 include RSpec::Matchers
+require 'fileutils'
 
 World(PageObject::PageFactory)
 
