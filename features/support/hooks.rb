@@ -18,3 +18,5 @@ CONFIRMATION_SENT = "Your e-mail's been sent!"
 HOVER1_TEXT = "name: user1\nView profile"
 HOVER2_TEXT = "name: user2\nView profile"
 HOVER3_TEXT = "name: user3\nView profile"
+
+CONTEXT_MENU_TEXT = "You selected a context menu"
