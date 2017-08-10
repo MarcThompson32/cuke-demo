@@ -13,3 +13,4 @@ https://github.com/cheezy/page-object/wiki/Elements
 cucumber -h
 output 
 -f and -o <<path filename.ext>>
+-f html

@@ -14,10 +14,14 @@ end
 Then /^I should see the (first|second) option is selected$/ do |option|
 	case option
 		when "first"
+			puts ">>> #{on(DemoDropdownPage).dropdown_list}"
+			
 			expect(on(DemoDropdownPage).dropdown_list).to eql first_option
 		when "second"
 			expect(on(DemoDropdownPage).dropdown_list).to eql  second_option
 	end
+
+	on(DemoDropdownPage).dropdown_list
 end
 
 Then /^I should see that option is disabled$/ do
