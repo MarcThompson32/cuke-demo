@@ -7,6 +7,7 @@ When /^I log in with invalid user name credentials$/ do
 end
 
 When /^I log in with valid credentials$/ do
+	on(DemoLoginPage).login_element.flash
 	on(DemoLoginPage).valid_login
 end
 
@@ -19,9 +20,9 @@ When /^I log in with invalid credentials$/ do
 end
 
 Then /^I should see the succesful login message$/ do
-	on(DemoLoginPage).verify_login_succesful
+	expect(on(DemoLoginPage).verify_login_succesful).to eql true
 end
 
 Then /^I should see the invalid login message$/ do
-	on(DemoLoginPage).verify_login_failure
+	expect(on(DemoLoginPage).verify_login_failure).to eql true
 end

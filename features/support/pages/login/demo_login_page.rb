@@ -7,9 +7,9 @@ class DemoLoginPage
 		text_field(:username,:id => 'username')
 		text_field(:password, :id => 'password')
 		button(:login, :css => '.radius')
-		div(:invalid_username_error, :id => 'flash')
+		div(:invalid_username_error, :css => '#flash')
 		div(:login_warning, :id => 'flash')	
-
+		
 	def invalid_login
 		self.populate_page_with data_for "login/invalid_login"
 		login
@@ -35,13 +35,13 @@ class DemoLoginPage
 	end
 
 	def verify_login_succesful
-		expect(self.login_warning.include? LOGIN_SUCCESS).to eql true
+		self.text.include?(LOGIN_SUCCESS)
 	end
 
 	def verify_login_failure
 		username_failure = self.login_warning.include? LOGIN_USERNAME_FAILURE
 		password_failure = self.login_warning.include? LOGIN_PASSWORD_FAILURE
 
-		expect(username_failure || password_failure).to eql true
+		username_failure || password_failure
 	end
 end
